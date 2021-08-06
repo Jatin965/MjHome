@@ -28,7 +28,7 @@
           background-color: #fa6bff;
         }
         &.purple {
-          background-color: $theme-color;
+          background-color: #ff9f00;
         }
         &.red {
           background-color: #c61a32;
@@ -87,7 +87,7 @@
         a {
           color: #666;
           &:hover {
-            color: $theme-color;
+            color: #ff9f00;
           }
         }
       }
@@ -144,7 +144,7 @@
         border-radius: 50px;
         background-color: #ff0000;
         &:hover {
-          background-color: $theme-color;
+          background-color: #ff9f00;
         }
       }
     }
@@ -198,7 +198,7 @@
           a {
             color: #555;
             &:hover {
-              color: $theme-color;
+              color: #ff9f00;
             }
           }
         }
@@ -225,7 +225,7 @@
       a {
         color: #333;
         &:hover {
-          color: $theme-color;
+          color: #ff9f00;
         }
       }
     }
@@ -256,7 +256,7 @@
 
           color: #333;
           &:hover {
-            color: $theme-color;
+            color: #ff9f00;
           }
         }
       }
@@ -366,7 +366,7 @@
 
       opacity: 0;
       color: #fff;
-      background-color: $theme-color;
+      background-color: #ff9f00;
       @media #{$md-layout} {
         font-size: 30px;
       }
@@ -415,7 +415,6 @@
         text-transform: uppercase;
 
         color: #000000;
-
 
         &::last-child {
           margin-right: 0;

@@ -39,8 +39,6 @@ const Header = () => {
       <header id="sticky" className="sticky">
         {/* {isLoading ? <Pace color="#27ae60" /> : null} */}
         <div className="mobile-fix-option"></div>
-        {/*Top Header Component*/}
-        {/* <TopBar /> */}
 
         <div className="container">
           <div className="row">
@@ -62,7 +60,7 @@ const Header = () => {
                   </div>
                   <div className="brand-logo">
                     {/* <LogoImage logo={props.logoName} /> */}
-                    <h1>MJ Homes</h1>
+                    <h4>MJ Homes</h4>
                   </div>
                 </div>
                 <div className="menu-right pull-right">

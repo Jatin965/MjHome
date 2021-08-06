@@ -1,14 +1,64 @@
-import React from "react";
-import ImageSliderList from "../components/Home/ImageSliderList";
-import ProductTab from "../components/Home/ProductTab";
-import Header from "../components/Nav/Header";
+import React, { useEffect } from "react";
+
+import { useHistory } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../redux/actions/productActions";
+
+import Banner from "../components/Home/Banner/Banner";
+import BlogFeatured from "../components/Home/Blog/BlogFeatured";
+import CountDownThree from "../components/Home/Deal/CountDownThree";
+import ImageSliderList from "../components/Home/EndImages/ImageSliderList";
+import ProductTab from "../components/Home/Products/ProductTab";
+import FeatureIcon from "../components/Home/Services/FeatureIcon";
+import HeroSlider from "../components/Home/Slider/HeroSlider";
+import VideoPopup from "../components/Home/VideoPopup";
+import Footer from "../components/Nav/Footer";
+import Header from "../components/Nav/HeaderIkea/Header";
+import CategoryGrid from "../components/Home/Category/CategoryGrid";
+import HeaderOne from "../components/Nav/HeaderOne/HeaderOne";
+import BlogPost from "../components/Home/BlogPost";
 
 const Home = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  let keyword = history.location.search;
+
+  const { error, loading, products, page, pages } = useSelector(
+    (state) => state.productList
+  );
+
+  useEffect(() => {
+    dispatch(listProducts(keyword));
+    console.log("Keyword", keyword);
+  }, [keyword, dispatch, history.location]);
+
   return (
     <div>
       <Header />
 
+      {/* <HeaderOne
+        layout="container-fluid"
+        headerPaddingClass="header-padding-1"
+        headerPositionClass="header-absolute"
+      /> */}
+
       <main>
+        <HeroSlider />
+
+        <div style={{ height: 10 }}></div>
+
+        <Banner />
+
+        <CountDownThree
+          spaceTopClass="pt-100"
+          spaceBottomClass="pb-100"
+          dateTime="November 13, 2021 12:12:00"
+          countDownImage="/assets/img/banner/deal-5.png"
+        />
+
+        <FeatureIcon spaceBottomClass="pb-70" />
 
         <ProductTab
           spaceTopClass="pt-95"
@@ -16,8 +66,22 @@ const Home = () => {
           category="furniture"
         />
 
+        <BlogPost />
+
+        <VideoPopup />
+
+        <CategoryGrid spaceBottomClass="pb-70" />
+
+        <BlogFeatured spaceBottomClass="pb-55" />
+
         <ImageSliderList />
       </main>
+
+      <Footer
+        backgroundColorClass="bg-gray"
+        spaceTopClass="pt-100"
+        spaceBottomClass="pb-70"
+      />
     </div>
   );
 };

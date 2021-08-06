@@ -1,10 +1,14 @@
 /*------ 23. Blog Details Page  -------*/
 
 .blog-details-top {
+  display: flex;
+  margin: 50px 10px;
+  // flex-direction: row-reverse;
+
   .blog-details-img {
     position: relative;
     img {
-      width: 100%;
+      width: 50vw;
     }
     .video-icon {
       position: absolute;
@@ -34,6 +38,7 @@
   }
   .blog-details-content {
     margin-top: 30px;
+    padding-left: 40px;
     .blog-meta-2 {
       display: flex;
       ul {
