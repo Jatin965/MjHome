@@ -67,14 +67,7 @@ const IconGroup = ({
           </ul>
         </div>
       </div>
-      <div className="same-style header-compare">
-        <Link to={process.env.PUBLIC_URL + "/compare"}>
-          <i className="pe-7s-shuffle" />
-          <span className="count-style">
-            {compareData && compareData.length ? compareData.length : 0}
-          </span>
-        </Link>
-      </div>
+
       <div className="same-style header-wishlist">
         <Link to={process.env.PUBLIC_URL + "/wishlist"}>
           <i className="pe-7s-like" />

@@ -2,20 +2,36 @@ import "./assets/scss/style.scss";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Product from "./pages/Product";
+// import Product from "./pages/Product";
 import Home from "./pages/Home";
+import Header from "./components/Nav/HeaderIkea/Header";
+import Footer from "./components/Nav/Footer";
+import LoginRegister from "./pages/LoginRegister";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Route to="/">
-          <Home />
-        </Route>
+        <Header />
+        <main>
+          <Route path="/" exact>
+            <Home />
+          </Route>
 
-        <Route to="/product-details">
-          <Product />
-        </Route>
+          <Route path="/login-register">
+            <LoginRegister />
+          </Route>
+
+          {/* <Route to="/product-details">
+            <Product />
+          </Route> */}
+        </main>
+
+        <Footer
+          backgroundColorClass="bg-gray"
+          spaceTopClass="pt-100"
+          spaceBottomClass="pb-70"
+        />
       </Router>
     </div>
   );

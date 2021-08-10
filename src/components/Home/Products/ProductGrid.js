@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import ProductGridSingle from "./ProductGridSingle";
 import { addToCart } from "../../../redux/actions/cartActions";
 import { addToWishlist } from "../../../redux/actions/wishlistActions";
-import { addToCompare } from "../../../redux/actions/compareActions";
 
 const ProductGrid = ({
   products,
@@ -14,7 +13,6 @@ const ProductGrid = ({
   addToCompare,
   cartItems,
   wishlistItems,
-  compareItems,
   sliderClassName,
   spaceBottomClass,
   colorClass,
@@ -32,7 +30,6 @@ const ProductGrid = ({
             product={product}
             addToCart={addToCart}
             addToWishlist={addToWishlist}
-            addToCompare={addToCompare}
             // cartItem={
             //   cartItems.filter((cartItem) => cartItem.id === product.id)[0]
             // }
@@ -59,7 +56,6 @@ ProductGrid.propTypes = {
   addToCompare: PropTypes.func,
   addToWishlist: PropTypes.func,
   cartItems: PropTypes.array,
-  compareItems: PropTypes.array,
   currency: PropTypes.object,
   products: PropTypes.array,
   sliderClassName: PropTypes.string,

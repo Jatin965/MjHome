@@ -13,10 +13,7 @@ import ProductTab from "../components/Home/Products/ProductTab";
 import FeatureIcon from "../components/Home/Services/FeatureIcon";
 import HeroSlider from "../components/Home/Slider/HeroSlider";
 import VideoPopup from "../components/Home/VideoPopup";
-import Footer from "../components/Nav/Footer";
-import Header from "../components/Nav/HeaderIkea/Header";
 import CategoryGrid from "../components/Home/Category/CategoryGrid";
-import HeaderOne from "../components/Nav/HeaderOne/HeaderOne";
 import BlogPost from "../components/Home/BlogPost";
 
 const Home = () => {
@@ -36,52 +33,36 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <HeroSlider />
 
-      {/* <HeaderOne
-        layout="container-fluid"
-        headerPaddingClass="header-padding-1"
-        headerPositionClass="header-absolute"
-      /> */}
+      <div style={{ height: 10 }}></div>
 
-      <main>
-        <HeroSlider />
+      <Banner />
 
-        <div style={{ height: 10 }}></div>
-
-        <Banner />
-
-        <CountDownThree
-          spaceTopClass="pt-100"
-          spaceBottomClass="pb-100"
-          dateTime="November 13, 2021 12:12:00"
-          countDownImage="/assets/img/banner/deal-5.png"
-        />
-
-        <FeatureIcon spaceBottomClass="pb-70" />
-
-        <ProductTab
-          spaceTopClass="pt-95"
-          spaceBottomClass="pb-100"
-          category="furniture"
-        />
-
-        <BlogPost />
-
-        <VideoPopup />
-
-        <CategoryGrid spaceBottomClass="pb-70" />
-
-        <BlogFeatured spaceBottomClass="pb-55" />
-
-        <ImageSliderList />
-      </main>
-
-      <Footer
-        backgroundColorClass="bg-gray"
+      <CountDownThree
         spaceTopClass="pt-100"
-        spaceBottomClass="pb-70"
+        spaceBottomClass="pb-100"
+        dateTime="November 13, 2021 12:12:00"
+        countDownImage="/assets/img/banner/deal-5.png"
       />
+
+      <FeatureIcon spaceBottomClass="pb-70" />
+
+      <ProductTab
+        spaceTopClass="pt-95"
+        spaceBottomClass="pb-100"
+        category="furniture"
+      />
+
+      <BlogPost />
+
+      <VideoPopup />
+
+      <CategoryGrid spaceBottomClass="pb-70" />
+
+      <BlogFeatured spaceBottomClass="pb-55" />
+
+      <ImageSliderList />
     </div>
   );
 };
