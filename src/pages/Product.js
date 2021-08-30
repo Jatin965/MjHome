@@ -1,21 +1,45 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import RelatedProductSlider from "../components/Product/RelatedProductSlider";
 import ProductDescriptionTab from "../components/Product/ProductDescriptionTab";
 import ProductImageDescription from "../components/Product/ProductImageDescription";
 
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../redux/actions/productActions";
+
 const Product = ({ location, product }) => {
+  const dispatch = useDispatch();
+
+  const { error, loading, products } = useSelector(
+    (state) => state.productList
+  );
+
+  useEffect(() => {
+    dispatch(listProducts);
+
+    console.log(products);
+  }, [dispatch]);
+
+  console.log(products);
   // const { pathname } = location;
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>ERROR: {error}</h1>;
+  }
 
   return (
     <Fragment>
       {/* product description with image */}
-      <ProductImageDescription
+      {/* <ProductImageDescription
         spaceTopClass="pt-100"
         spaceBottomClass="pb-100"
         product={product}
-      />
+      /> */}
 
       {/* product description tab */}
       <ProductDescriptionTab

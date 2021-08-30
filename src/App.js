@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Header from "./components/Nav/HeaderIkea/Header";
 import Footer from "./components/Nav/Footer";
 import LoginRegister from "./pages/LoginRegister";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
             <LoginRegister />
           </Route>
 
-          {/* <Route to="/product-details">
+          <Route to="/product-details/:id">
             <Product />
-          </Route> */}
+          </Route>
         </main>
 
         <Footer

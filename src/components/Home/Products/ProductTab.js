@@ -63,7 +63,7 @@ const ProductTab = ({
               <div className="row">
                 <ProductGrid
                   category={category}
-                  products={products}
+                  products={products.slice(0, 6)}
                   type="products"
                   limit={6}
                   spaceBottomClass="mb-25"

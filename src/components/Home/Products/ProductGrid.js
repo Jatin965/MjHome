@@ -10,7 +10,6 @@ const ProductGrid = ({
   products,
   addToCart,
   addToWishlist,
-  addToCompare,
   cartItems,
   wishlistItems,
   sliderClassName,

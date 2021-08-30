@@ -41,12 +41,10 @@ const ProductGridSingle = ({
           } `}
         >
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-              <img
-                className="default-img"
-                src={"http://eswar007.pythonanywhere.com/" + product.image}
-                alt="Image"
-              />
+            <Link
+              to={process.env.PUBLIC_URL + "/product-details/" + product.id}
+            >
+              <img className="default-img" src={product.image[0]} alt="Image" />
               {product.image.length > 1 ? (
                 <img
                   className="hover-img"
@@ -79,7 +77,7 @@ const ProductGridSingle = ({
                 </a>
               ) : product.variation && product.variation.length >= 1 ? (
                 <Link
-                  to={`${process.env.PUBLIC_URL}/product/${product.id}`}
+                  to={`${process.env.PUBLIC_URL}/product-details/${product.id}`}
                   title="Select options"
                 >
                   <i className="fa fa-cog"></i>
@@ -111,18 +109,6 @@ const ProductGridSingle = ({
               </button>
 
               <button
-                className={compareItem !== undefined ? "active" : ""}
-                disabled={compareItem !== undefined}
-                title={
-                  compareItem !== undefined
-                    ? "Added to compare"
-                    : "Add to compare"
-                }
-                onClick={() => addToCompare(product /*addToast*/)}
-              >
-                <i className="fa fa-retweet"></i>
-              </button>
-              <button
                 className={wishlistItem !== undefined ? "active" : ""}
                 disabled={wishlistItem !== undefined}
                 title={
@@ -139,7 +125,9 @@ const ProductGridSingle = ({
           <div className="product-content-2">
             <div className="title-price-wrap-2">
               <h3>
-                <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                <Link
+                  to={process.env.PUBLIC_URL + "/product-details/" + product.id}
+                >
                   {product.name}
                 </Link>
               </h3>

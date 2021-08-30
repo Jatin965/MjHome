@@ -16,7 +16,7 @@ const CategorySingle = ({ data }) => {
           </Link>
         </div>
         <div className="category-grid__content">
-          <Link to={process.env.PUBLIC_URL + data.url}>{data.title}</Link>
+          <Link to={process.env.PUBLIC_URL + data.url}>{data.name}</Link>
         </div>
       </div>
     </div>

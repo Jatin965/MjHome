@@ -3,7 +3,10 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts, categoryProducts } from "../redux/actions/productActions";
+import {
+  listProducts,
+  categoryProducts,
+} from "../redux/actions/productActions";
 
 import Banner from "../components/Home/Banner/Banner";
 import BlogFeatured from "../components/Home/Blog/BlogFeatured";
@@ -26,18 +29,22 @@ const Home = () => {
     (state) => state.productList
   );
 
-  const {error: errorC, loading: loadingC, categories} = useSelector(state => state.productCategory)
+  const {
+    error: errorC,
+    loading: loadingC,
+    categories,
+  } = useSelector((state) => state.productCategory);
 
   useEffect(() => {
     dispatch(listProducts(keyword));
-    dispatch(categoryProducts())
+    dispatch(categoryProducts());
     console.log("Keyword", keyword);
   }, [keyword, dispatch, history.location]);
 
-  console.log(categories)
+  console.log(categories);
 
   if (loading || loadingC) {
-    return <h1>Loading</h1>
+    return <h1>Loading</h1>;
   }
 
   return (
@@ -67,7 +74,10 @@ const Home = () => {
 
       <VideoPopup />
 
-      <CategoryGrid categoryData={categories} spaceBottomClass="pb-70" />
+      <CategoryGrid
+        categoryData={categories.slice(0, 6)}
+        spaceBottomClass="pb-70"
+      />
 
       <BlogFeatured spaceBottomClass="pb-55" />
 
