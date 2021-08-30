@@ -9,6 +9,8 @@ import {
   USER_REGISTER_FAIL,
 } from "../constants/userConstants";
 
+
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -43,6 +45,9 @@ export const login = (email, password) => async (dispatch) => {
     });
   }
 };
+
+
+
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");

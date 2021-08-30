@@ -8,6 +8,14 @@ const LoginRegister = () => {
   const location = useLocation();
   const { pathname } = location;
 
+  const loginHandler = (e) => {
+    e.preventDefault();
+  };
+
+  const registerHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <Fragment>
       <div className="login-register-area pt-100 pb-100">
@@ -32,7 +40,7 @@ const LoginRegister = () => {
                     <Tab.Pane eventKey="login">
                       <div className="login-form-container">
                         <div className="login-register-form">
-                          <form>
+                          <form onSubmit={loginHandler}>
                             <input
                               type="email"
                               name="user-email"
@@ -60,7 +68,7 @@ const LoginRegister = () => {
                     <Tab.Pane eventKey="register">
                       <div className="login-form-container">
                         <div className="login-register-form">
-                          <form>
+                          <form onSubmit={registerHandler}>
                             <input
                               type="text"
                               name="first-name"

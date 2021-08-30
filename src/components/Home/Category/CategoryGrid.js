@@ -1,7 +1,7 @@
 import React from "react";
 import CategorySingle from "./CategorySingle.js";
 
-const categoryData = [
+const categoryDat = [
   {
     id: 1,
     image: "/assets/img/banner/banner-43.jpg",
@@ -40,7 +40,7 @@ const categoryData = [
   },
 ];
 
-const CategoryGrid = ({ spaceBottomClass }) => {
+const CategoryGrid = ({ spaceBottomClass, categoryData }) => {
   return (
     <div
       className={`category-grid-area ${
