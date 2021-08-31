@@ -27,6 +27,8 @@ const ProductImageDescription = ({
   // )[0];
   // const { addToast } = useToasts();
 
+  console.log(product);
+
   const wishlistItem = "";
   const compareItem = "";
   const addToast = "";

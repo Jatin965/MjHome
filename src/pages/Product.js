@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useEffect } from "react";
-import { connect } from "react-redux";
+import { useHistory, useRouteMatch } from "react-router-dom";
+
 import RelatedProductSlider from "../components/Product/RelatedProductSlider";
 import ProductDescriptionTab from "../components/Product/ProductDescriptionTab";
 import ProductImageDescription from "../components/Product/ProductImageDescription";
@@ -8,38 +9,39 @@ import ProductImageDescription from "../components/Product/ProductImageDescripti
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../redux/actions/productActions";
 
-const Product = ({ location, product }) => {
+const Product = ({ location }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const match = useRouteMatch();
 
   const { error, loading, products } = useSelector(
     (state) => state.productList
   );
 
   useEffect(() => {
-    dispatch(listProducts);
+    dispatch(listProducts());
 
     console.log(products);
-  }, [dispatch]);
+  }, [dispatch, history.location, match.params.id]);
 
-  console.log(products);
-  // const { pathname } = location;
+  console.log(products.filter((product) => product.id === match.params.id));
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  // if (loading) {
+  //   return <h1>Loading...</h1>;
+  // }
 
-  if (error) {
-    return <h1>ERROR: {error}</h1>;
-  }
+  // if (error) {
+  //   return <h1>ERROR: {error}</h1>;
+  // }
 
   return (
     <Fragment>
       {/* product description with image */}
-      {/* <ProductImageDescription
+      <ProductImageDescription
         spaceTopClass="pt-100"
         spaceBottomClass="pb-100"
-        product={product}
-      /> */}
+        product={products.filter((product) => product.id === match.params.id)}
+      />
 
       {/* product description tab */}
       <ProductDescriptionTab
@@ -48,10 +50,11 @@ const Product = ({ location, product }) => {
       />
 
       {/* related product slider */}
-      <RelatedProductSlider
+      {/* <RelatedProductSlider
         spaceBottomClass="pb-95"
-        // category={product.category[0]}
-      />
+        category={products.category[0]}
+        products={products}
+      /> */}
     </Fragment>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 import Swiper from "react-id-swiper";
 import ProductGrid from "../Home/Products/ProductGrid";
 
-const RelatedProductSlider = ({ spaceBottomClass, category }) => {
+const RelatedProductSlider = ({ spaceBottomClass, category, products }) => {
   const settings = {
     loop: false,
     slidesPerView: 4,
@@ -42,7 +42,8 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
           <Swiper {...settings}>
             <ProductGrid
               category={category}
-              limit={6}
+              limit={4}
+              products={products}
               sliderClassName="swiper-slide"
             />
           </Swiper>
