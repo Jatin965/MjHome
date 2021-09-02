@@ -1,6 +1,6 @@
 import "./assets/scss/style.scss";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // import Product from "./pages/Product";
 import Home from "./pages/Home";
@@ -15,17 +15,19 @@ function App() {
       <Router>
         <Header />
         <main>
-          <Route path="/" exact>
-            <Home />
-          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
 
-          <Route path="/login-register">
-            <LoginRegister />
-          </Route>
+            <Route path="/login-register">
+              <LoginRegister />
+            </Route>
 
-          <Route to="/product-details/:id">
-            <Product />
-          </Route>
+            <Route path="/product-details/:id">
+              <Product />
+            </Route>
+          </Switch>
         </main>
 
         <Footer

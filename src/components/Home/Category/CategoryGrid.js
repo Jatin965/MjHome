@@ -5,37 +5,37 @@ const categoryDat = [
   {
     id: 1,
     image: "/assets/img/banner/banner-43.jpg",
-    title: "Wooden Chair (06)",
+    name: "Wooden Chair (06)",
     url: "/shop-grid-standard",
   },
   {
     id: 2,
     image: "/assets/img/banner/banner-44.jpg",
-    title: "Sofa Collection (10)",
+    name: "Sofa Collection (10)",
     url: "/shop-grid-standard",
   },
   {
     id: 3,
     image: "/assets/img/banner/banner-45.jpg",
-    title: "Wooden Bed (06)",
+    name: "Wooden Bed (06)",
     url: "/shop-grid-standard",
   },
   {
     id: 4,
     image: "/assets/img/banner/banner-43.jpg",
-    title: "Wooden Chair (06)",
+    name: "Wooden Chair (06)",
     url: "/shop-grid-standard",
   },
   {
     id: 5,
     image: "/assets/img/banner/banner-44.jpg",
-    title: "Sofa Collection (10)",
+    name: "Sofa Collection (10)",
     url: "/shop-grid-standard",
   },
   {
     id: 6,
     image: "/assets/img/banner/banner-45.jpg",
-    title: "Wooden Bed (06)",
+    name: "Wooden Bed (06)",
     url: "/shop-grid-standard",
   },
 ];

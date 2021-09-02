@@ -7,41 +7,41 @@ import ProductDescriptionTab from "../components/Product/ProductDescriptionTab";
 import ProductImageDescription from "../components/Product/ProductImageDescription";
 
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../redux/actions/productActions";
+import { detailProduct } from "../redux/actions/productActions";
 
-const Product = ({ location }) => {
+const Product = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const match = useRouteMatch();
 
-  const { error, loading, products } = useSelector(
-    (state) => state.productList
+  const { error, loading, product } = useSelector(
+    (state) => state.productDetail
   );
 
+  console.log(product);
+
   useEffect(() => {
-    dispatch(listProducts());
+    dispatch(detailProduct(match.params.id));
 
-    console.log(products);
+    console.log(product);
   }, [dispatch, history.location, match.params.id]);
-
-  console.log(products.filter((product) => product.id === match.params.id));
 
   // if (loading) {
   //   return <h1>Loading...</h1>;
   // }
 
-  // if (error) {
-  //   return <h1>ERROR: {error}</h1>;
-  // }
+  if (error) {
+    return <h1>ERROR: {error}</h1>;
+  }
 
   return (
     <Fragment>
-      {/* product description with image */}
+      {/* product description with image 
       <ProductImageDescription
         spaceTopClass="pt-100"
         spaceBottomClass="pb-100"
-        product={products.filter((product) => product.id === match.params.id)}
-      />
+        // product={product}
+      />*/}
 
       {/* product description tab */}
       <ProductDescriptionTab
@@ -59,19 +59,4 @@ const Product = ({ location }) => {
   );
 };
 
-Product.propTypes = {
-  location: PropTypes.object,
-  product: PropTypes.object,
-};
-
-// const mapStateToProps = (state, ownProps) => {
-//   const itemId = ownProps.match.params.id;
-//   return {
-//     product: state.productData.products.filter(
-//       (single) => single.id === itemId
-//     )[0],
-//   };
-// };
-
-// export default connect(mapStateToProps)(Product);
 export default Product;
